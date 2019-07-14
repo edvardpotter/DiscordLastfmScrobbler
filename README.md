@@ -56,3 +56,5 @@ Now just run the executable. It should connect to Discord and immediately start 
 If it's working, it will look like this:
 
 ![Running Executable](https://i.imgur.com/lsb0GFx.png)
+
+Inspired by: https://github.com/vsTerminus/Discord-NP
