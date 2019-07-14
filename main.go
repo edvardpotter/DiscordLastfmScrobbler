@@ -59,29 +59,29 @@ func scrobbler() error {
 			result, err := api.User.GetRecentTracks(lastfm.P{"limit": "1", "user": username})
 			if err != nil {
 				fmt.Println("LastFM error: ", err)
-				return err
-			}
-			if len(result.Tracks) > 0 {
-				currentTrack := result.Tracks[0]
-				isNowPlaying, _ := strconv.ParseBool(currentTrack.NowPlaying)
-				trackName := currentTrack.Artist.Name + " - " + currentTrack.Name
-				if isNowPlaying && prevTrack != trackName {
-					prevTrack = trackName
-					statusData := discordgo.UpdateStatusData{
-						Game: &discordgo.Game{
-							Name:    prevTrack,
-							Type:    discordgo.GameTypeListening,
-							Details: "LAST.FM",
-							State:   "DiscordLastfmScrobbler",
-						},
-						AFK:    false,
-						Status: "online",
+			} else {
+				if len(result.Tracks) > 0 {
+					currentTrack := result.Tracks[0]
+					isNowPlaying, _ := strconv.ParseBool(currentTrack.NowPlaying)
+					trackName := currentTrack.Artist.Name + " - " + currentTrack.Name
+					if isNowPlaying && prevTrack != trackName {
+						prevTrack = trackName
+						statusData := discordgo.UpdateStatusData{
+							Game: &discordgo.Game{
+								Name:    prevTrack,
+								Type:    discordgo.GameTypeListening,
+								Details: "LAST.FM",
+								State:   "DiscordLastfmScrobbler",
+							},
+							AFK:    false,
+							Status: "online",
+						}
+						if err := dg.UpdateStatusComplex(statusData); err != nil {
+							fmt.Println("Discord error: ", err)
+							return err
+						}
+						Print("Now playing: " + trackName)
 					}
-					if err := dg.UpdateStatusComplex(statusData); err != nil {
-						fmt.Println("Discord error: ", err)
-						return err
-					}
-					Print("Now playing: " + trackName)
 				}
 			}
 		}
