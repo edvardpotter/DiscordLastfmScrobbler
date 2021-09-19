@@ -2,7 +2,7 @@
 
 This script will update your Discord "Listening to" status with whatever you are listening to according to Last.FM
 
-![Discord Screenshot](https://i.imgur.com/FflYUk0.png)
+![Discord Screenshot](https://i.imgur.com/cwpg8i8.png) ![Other Discord screenshot](https://i.imgur.com/x5mWIXR.png)
 
 Setup is fairly straightforward and only takes a few minutes. You'll need two things:
 
@@ -30,6 +30,8 @@ If you are using the desktop app:
 - Click the "*Application*" tab
 - Click and expand the "*Local Storage*" section
 - Click on the only entry in this section, "*https://discordapp.com*"
+- Press **F5**
+- Wait few seconds
 - Right click -> Edit Value in the field to the right of "*token*"
 - Copy and paste the token value into the config file on the `token = xxx` line and remove the quotation marks from it.
 
@@ -45,16 +47,27 @@ If you are using Discord in a browser:
 
 ![Browser Token](https://i.imgur.com/OFrhTHE.png)
 
+## **3. App settings**
+
+You can change there *title* and *settings* options.
+
+If you want to change title of status (for example, "Listening to Deezer" or "Listening to podcasts)", change "title" value
+Example:
+
+![Example of changed title](https://i.imgur.com/9OShK3U.png)
+
+Also if you want to ignore not critic errors, change value "endless_mode" to "true"
+
 ## When you're done
 
 Save your config file as "*config.ini*" and it should look something like this:
 
-![Finished Config File](https://i.imgur.com/X1pO6Di.png)
+![Finished Config File](https://i.imgur.com/4fZofod.png)
 
 Now just run the executable. It should connect to Discord and immediately start setting your "*Playing*" status to whatever you're listening to on Last.FM
 
 If it's working, it will look like this:
 
-![Running Executable](https://i.imgur.com/lsb0GFx.png)
+![Running Executable](https://i.imgur.com/65gyoIY.png)
 
 Inspired by: https://github.com/vsTerminus/Discord-NP

@@ -8,13 +8,23 @@
 api_key = yourApiKey
 
 # Next, you'll also need to provide your Last.FM username for the script to query.
-username = yourName
+username = yourUsername
 
 # Finally, provide an interval (in seconds). This tells the script how often it should
 # check what you're listening to.
-interval = 1
+interval = 5
 
 [discord]
 # Unlike Last.FM, you don't need an API account for the Discord connection.
 # All you need is your User Token from the Discord Desktop (or web) Application.
 token = yourToken
+
+
+
+[app]
+# If you want to change title of status (for example, "Listening to Deezer" or 
+# "Listening to podcasts)", change this value
+title = LAST.FM
+
+# If you want to ignore errors and run app forever, change this value to "true"
+endless_mode = false
